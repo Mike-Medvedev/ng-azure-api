@@ -35,7 +35,7 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.status(200).send('Hello World, Api for ng-azure')
+  res.status(200).send('Hello World, Api for ng-azure!')
 })
 
 app.post('/exchangeCodeforToken', (req, res) => {
