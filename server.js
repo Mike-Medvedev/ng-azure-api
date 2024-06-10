@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const { main } = require('./Completions')
 
 const app = express();
+const port = process.env.PORT || 3000
 dotenv.config();
 
 app.use(cors());
@@ -122,6 +123,6 @@ app.post('/rec', async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('Server is running on port 3000');
 });
