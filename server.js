@@ -21,6 +21,7 @@ const client_secret = process.env.client_secret;
 const redirect_uri = process.env.redirect_uri;
 const scope =  process.env.scope;
 const state = crypto.randomBytes(16).toString('hex');
+let i;
 
 app.get('/login', (req, res) => {
   res.redirect('https://accounts.spotify.com/authorize?' +
