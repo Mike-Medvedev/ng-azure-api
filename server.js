@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 const client_id = process.env.client_id;
 const client_secret = process.env.client_secret;
-const redirect_uri = process.env.redirect_uri ?? 'http://localhost:4200/callback';
+const redirect_uri = process.env.redirect_uri;
 const scope =  process.env.scope;
 const state = crypto.randomBytes(16).toString('hex');
 
