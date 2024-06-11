@@ -108,6 +108,7 @@ app.post('/rec', async (req, res) => {
   const prompt = req.body.prompt;
   console.log('hit')
   console.log(prompt)
+  
 
   try {
     if(typeof prompt === 'string' && prompt){

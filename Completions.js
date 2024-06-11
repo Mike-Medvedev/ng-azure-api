@@ -17,11 +17,19 @@ const deployment = "spotify-deploy"; //This must match your deployment name.
 async function main(prompt) {
     if (typeof prompt === 'string' && prompt) {
         const client = new AzureOpenAI({ endpoint, apiKey, apiVersion, deployment });
-        const result = await client.completions.create({ prompt: [prompt], model: deployment, max_tokens: 128 });
+        const messages = [
+            { role: 'system', content: 'You are a helpful assistant.' },
+            { role: 'user', content: prompt }
+        ];
+        const result = await client.chat.completions.create({
+            model: deployment,
+            messages: messages,
+            max_tokens: 128
+        });
         let choiceArray = [];
       
         for (const choice of result.choices) {
-            choiceArray.push(choice.text);
+            choiceArray.push(choice.message.content);
             console.log(choice.text);
         } 
 
